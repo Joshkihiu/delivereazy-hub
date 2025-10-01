@@ -1,19 +1,47 @@
 import { Button } from "@/components/ui/button";
-import { Package, MapPin, Clock, Shield } from "lucide-react";
+import { Package, MapPin, Clock, Shield, Bike, Footprints } from "lucide-react";
 import { Link } from "react-router-dom";
+import endeaLogo from "@/assets/endea-logo.png";
 
 const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <img src={endeaLogo} alt="Endea Logo" className="w-10 h-10" />
+              <span className="text-2xl font-bold">Endea</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link to="/auth">
+                <Button variant="ghost">Sign In</Button>
+              </Link>
+              <Link to="/auth">
+                <Button>Get Started</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-              Fast, Reliable <span className="text-primary">Deliveries</span>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Bike className="w-12 h-12 text-primary" />
+              <Footprints className="w-12 h-12 text-primary" />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
+              Lightning-Fast <span className="text-primary">Delivery</span>
+              <br />
+              <span className="text-3xl md:text-5xl">Motorcycle & On-Foot</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Your trusted platform for same-day deliveries. From parcels to documents, we deliver with care.
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              Get your packages delivered in 30 minutes or less. From documents to parcels, 
+              our motorcycle and walking couriers deliver across Nairobi with speed and care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/auth">

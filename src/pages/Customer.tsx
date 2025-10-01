@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { MapPin, Search, Home, Calendar, User, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, Search, Home, Calendar, User, Menu, Zap, Package, Clock } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import endeaLogo from "@/assets/endea-logo.png";
 
 const Customer = () => {
   const [destination, setDestination] = useState("");
+  const navigate = useNavigate();
 
   const savedPlaces = [
     { icon: <Home className="w-5 h-5" />, name: "Enter home location", address: "" },
@@ -25,41 +27,79 @@ const Customer = () => {
           </div>
         </div>
 
-        {/* Menu Button */}
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute top-4 left-4 rounded-full shadow-lg"
-        >
-          <Menu className="w-5 h-5" />
-        </Button>
+        {/* Header */}
+        <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+          <Button
+            size="icon"
+            variant="secondary"
+            className="rounded-full shadow-lg"
+          >
+            <Menu className="w-5 h-5" />
+          </Button>
+          <div className="flex items-center gap-2 bg-card/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+            <img src={endeaLogo} alt="Endea" className="w-6 h-6" />
+            <span className="font-bold">Endea</span>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Sheet */}
       <div className="flex-1 bg-card rounded-t-3xl -mt-6 shadow-lg">
         <div className="container mx-auto px-4 py-6 max-w-2xl">
-          {/* Promo Banner */}
-          <Card className="bg-primary text-primary-foreground p-4 mb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary-foreground/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl">🎁</span>
+          {/* Quick Actions */}
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            <button
+              onClick={() => navigate("/request-delivery")}
+              className="bg-primary text-primary-foreground rounded-xl p-4 hover:opacity-90 transition-opacity"
+            >
+              <Zap className="w-6 h-6 mx-auto mb-2" />
+              <p className="text-xs font-semibold">Express</p>
+              <p className="text-xs opacity-75">30 min</p>
+            </button>
+            <button
+              onClick={() => navigate("/request-delivery")}
+              className="bg-secondary text-secondary-foreground rounded-xl p-4 hover:bg-secondary/80 transition-colors"
+            >
+              <Package className="w-6 h-6 mx-auto mb-2" />
+              <p className="text-xs font-semibold">Package</p>
+              <p className="text-xs opacity-75">Standard</p>
+            </button>
+            <button
+              onClick={() => navigate("/request-delivery")}
+              className="bg-secondary text-secondary-foreground rounded-xl p-4 hover:bg-secondary/80 transition-colors"
+            >
+              <Clock className="w-6 h-6 mx-auto mb-2" />
+              <p className="text-xs font-semibold">Schedule</p>
+              <p className="text-xs opacity-75">Later</p>
+            </button>
+          </div>
+
+          {/* Active Delivery Banner */}
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20 p-4 mb-6 cursor-pointer hover:border-primary/40 transition-colors" onClick={() => navigate("/track-delivery")}>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+                  <Package className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold">Delivery in Progress</p>
+                  <p className="text-sm text-muted-foreground">Arriving in 12 min</p>
+                </div>
               </div>
-              <div>
-                <p className="font-semibold">50% off 3 deliveries</p>
-                <p className="text-sm opacity-90">View details</p>
-              </div>
+              <Button size="sm" variant="outline">Track</Button>
             </div>
           </Card>
 
-          <h2 className="text-2xl font-bold mb-6">Let's go places.</h2>
+          <h2 className="text-2xl font-bold mb-6">Where to deliver?</h2>
 
           {/* Search Input */}
           <div className="relative mb-6">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
-              placeholder="Where to?"
+              placeholder="Enter pickup or drop-off location"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
+              onFocus={() => navigate("/request-delivery")}
               className="pl-12 h-14 text-lg"
             />
           </div>
