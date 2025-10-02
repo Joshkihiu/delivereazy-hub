@@ -9,7 +9,7 @@ const Rides = () => {
       <div className="container mx-auto px-4 py-6 max-w-2xl">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-bold">Rides</h1>
+          <h1 className="text-3xl font-bold">Orders</h1>
           <Button size="icon" variant="ghost">
             <Info className="w-5 h-5" />
           </Button>
@@ -68,7 +68,7 @@ const Rides = () => {
             <Link to="/customer">
               <NavButton icon={<Home className="w-6 h-6" />} label="Home" />
             </Link>
-            <NavButton icon={<Calendar className="w-6 h-6" />} label="Rides" active />
+            <NavButton icon={<Calendar className="w-6 h-6" />} label="Orders" active />
             <Link to="/account">
               <NavButton icon={<User className="w-6 h-6" />} label="Account" />
             </Link>

@@ -11,6 +11,7 @@ import Account from "./pages/Account";
 import Rides from "./pages/Rides";
 import NotFound from "./pages/NotFound";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
+import DelivererSignup from "./pages/DelivererSignup";
 import RequestDelivery from "./pages/RequestDelivery";
 import TrackDelivery from "./pages/TrackDelivery";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/role-selection" element={<RoleSelection />} />
           <Route path="/customer" element={<Customer />} />
+          <Route path="/deliverer-signup" element={<DelivererSignup />} />
           <Route path="/delivery-dashboard" element={<DeliveryDashboard />} />
           <Route path="/request-delivery" element={<RequestDelivery />} />
           <Route path="/track-delivery" element={<TrackDelivery />} />

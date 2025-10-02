@@ -152,7 +152,7 @@ const Customer = () => {
           <div className="flex justify-around py-3">
             <NavButton icon={<Home className="w-6 h-6" />} label="Home" active />
             <Link to="/rides">
-              <NavButton icon={<Calendar className="w-6 h-6" />} label="Rides" />
+              <NavButton icon={<Calendar className="w-6 h-6" />} label="Orders" />
             </Link>
             <Link to="/account">
               <NavButton icon={<User className="w-6 h-6" />} label="Account" />

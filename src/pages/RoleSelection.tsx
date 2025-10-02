@@ -46,7 +46,7 @@ const RoleSelection = () => {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-all cursor-pointer border-2 hover:border-primary" onClick={() => navigate("/deliverer")}>
+          <Card className="hover:shadow-lg transition-all cursor-pointer border-2 hover:border-primary" onClick={() => navigate("/deliverer-signup")}>
             <CardHeader className="text-center pb-4">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Bike className="w-10 h-10 text-primary" />

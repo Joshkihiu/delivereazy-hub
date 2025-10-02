@@ -102,7 +102,7 @@ const Account = () => {
               <NavButton icon={<Home className="w-6 h-6" />} label="Home" />
             </Link>
             <Link to="/rides">
-              <NavButton icon={<Calendar className="w-6 h-6" />} label="Rides" />
+              <NavButton icon={<Calendar className="w-6 h-6" />} label="Orders" />
             </Link>
             <NavButton icon={<User className="w-6 h-6" />} label="Account" active />
           </div>
